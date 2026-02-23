@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey Continues</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+        <h1>The Journey Continues</h1>
+        <p>With the guardian's riddle behind you, the path forward splits into three. Each route is known to favor
+            certain traits: strength, wisdom, or stealth. Choose your path wisely, as it will influence the challenges
+            you face ahead.</p>
+
+        <form action="page6.html" method="get" id="pathForm">
+            <label for="path">Choose your path:</label>
+            <select name="pathChoice" id="pathChoice" required>
+                <option value="">--Please choose an option--</option>
+                <option value="strength">The Path of Strength</option>
+                <option value="wisdom">The Path of Wisdom</option>
+                <option value="stealth">The Path of Stealth</option>
+            </select>
+            <button type="submit">Continue on Your Journey</button>
+        </form>
+
+        <p>Your choice will not only test your abilities but also reveal deeper truths about your character.</p>
+    </section>
+
+    <script>
+        let pathChoice = document.getElementById('pathChoice');
+        let pathForm = document.getElementById('pathForm');
+
+        pathChoice.addEventListener('change', function () {
+            if (pathChoice.value === "strength") {
+                document.body.style.backgroundColor = "#ffcccc"; // Light red for strength
+                pathForm.action = "page6.html";
+            } else if (pathChoice.value === "wisdom") {
+                document.body.style.backgroundColor = "#ccccff"; // Light blue for wisdom
+                pathForm.action = "page6.html";
+            } else if (pathChoice.value === "stealth") {
+                document.body.style.backgroundColor = "#ccffcc"; // Light green for stealth
+                pathForm.action = "page5b.html";                 // Redirect to a 5b for stealth path
+            }
+        });
+    </script>
+</body>
+
+</html>

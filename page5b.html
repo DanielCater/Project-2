@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Path of Stealth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+
+        <h1>The Path of Stealth</h1>
+        <p>To successfully navigate the Path of Stealth, you must choose your actions carefully. Select the correct
+            sequence of actions to avoid detection and reach your objective.</p>
+        <!-- Actions -->
+        <div id="hide" class="stealth-option">Hide in the
+            shadows</div>
+        <div id="run" class="stealth-option">Run quickly
+            to the next cover</div>
+        <div id="distract" class="stealth-option">Create a
+            distraction</div>
+        <div id="wait" class="stealth-option">Wait for the
+            right moment
+        </div>
+        <!-- Buttons -->
+        <button id="checkSequence">Check Sequence</button>
+        <button id="reset">Reset!</button>
+        <script>
+            const correctSequence = ['hide', 'wait', 'distract'];
+            let userSequence = [];
+
+            function selectAction(action) {
+                userSequence.push(action);
+            }
+
+            function checkSequence() {
+                if (JSON.stringify(userSequence) === JSON.stringify(correctSequence)) {
+                    alert('Congratulations! You have successfully navigated the Path of Stealth!');
+                    location.href = 'page6.html';
+                } else {
+                    reset();
+                }
+            }
+
+            function reset() {
+                userSequence = [];
+                document.querySelectorAll('.stealth-option').forEach(option => {
+                    option.style.backgroundColor = '';
+                });
+            }
+
+            document.querySelectorAll('.stealth-option').forEach(option => {
+                option.addEventListener('click', function (event) {
+                    selectAction(event.target.id);
+                    event.target.style.backgroundColor = '#007bff';
+                });
+            });
+
+            document.getElementById('checkSequence').addEventListener('click', function (event) {
+                checkSequence();
+            });
+
+            document.getElementById('reset').addEventListener('click', function (event) {
+                reset();
+            });
+        </script>
+    </section>
+</body>
+
+</html>
