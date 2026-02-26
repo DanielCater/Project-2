@@ -52,7 +52,7 @@ label {
 }
 input[type=submit],
 button {
-    background-color: #007bff;
+    background-color: #0056B3;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -62,7 +62,7 @@ button {
     margin-top: 30px;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #004FA3;
 }
 .stealth-option {
     padding: 10px;
